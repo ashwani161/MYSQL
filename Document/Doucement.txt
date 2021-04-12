@@ -1,0 +1,63 @@
+CREATE DATABASE AddressBookService;
+show databases;
+use AddressBookService;
+CREATE TABLE AddressBook(FirstName varchar(45),LastName varchar(255),
+Address varchar(65),City varchar(20),State varchar(20),Zip char(6),
+PhoneNumber varchar(20),Email varchar(60));
+SHOW TABLES;
+INSERT INTO AddressBook VALUES ('Maddi','Ashwani','Chandanagar',
+'Hyderabad','Telangana','500050','9550192936','ashwanin65@gmail.com');
+SHOW TABLES;
+describe AddressBook;
+INSERT INTO AddressBook VALUES ('Kathi','Ram','Nizampet',
+'Secundrabad','Telangana','500090','8547125962','ram44@gmail.com');
+INSERT INTO AddressBook VALUES ('pasupulati','Sravani','Ashoknagar',
+'vijayawada','Andhrapradesh','500264','8541257685','sravani5@gmail.com');
+select * from AddressBook;
+INSERT INTO AddressBook VALUES ('Veeragadham','Swathi','F.c.i colony',
+'Tadepalligudem','Andhrapradesh','560488','9864521284','swathi125@gmail.com');
+INSERT INTO AddressBook VALUES ('Adabala','Surya','mallkipuram',
+'Narasapuram','Andhrapradesh', '524101','7895241634','Suryaadabala@gmail.com');
+use AddressBookService;
+show databases;
+show tables;
+select * from AddressBook;
+update AddressBook set phoneNumber='7852461895' where LastName='Sravani';
+select * from AddressBook;
+delete from AddressBook where FirstName='pasupulati';
+select * from AddressBook;
+INSERT INTO AddressBook VALUES ('pasupulati','Sravani','Ashoknagar',
+'vijayawada','Andhrapradesh','500264','8541257685','sravani5@gmail.com');
+select * from AddressBook;
+update AddressBook set phoneNumber='7852461895' where LastName='Sravani';
+select * from AddressBook;
+delete from AddressBook where FirstName='pasupulati';
+select * from AddressBook;
+select City,
+length(City) 'city_length'
+from AddressBook;
+select state,
+length(State) 'state_length'
+from AddressBook;
+select FirstName,LastName,City from AddressBook where City='Narasapuram' ORDER BY FirstName ASC;
+alter table AddressBook add Name varchar(30);
+alter table AddressBook add Type varchar(25);
+select * from AddressBook;
+alter table AddressBook drop Name;
+select * from AddressBook;
+update AddressBook set type='Family' where LastName='Ashwani';
+select * from AddressBook;
+update AddressBook set type='Friend' where LastName='Ram';
+select * from AddressBook;
+update AddressBook set type='profession' where LastName='Swathi';
+select * from AddressBook;
+update AddressBook set type='Family' where LastName='Surya';
+select * from AddressBook;
+update AddressBook set type='Friend' where LastName='Ram';
+select * from AddressBook;
+update AddressBook set type='profession' where LastName='Swathi';
+update AddressBook set type='profession' where LastName='Swathi';
+select * from AddressBook;
+select type, count(*) from AddressBook group by type;
+update AddressBook set type=('Family,Friend') where LastName='Ram';
+select * from AddressBook;
